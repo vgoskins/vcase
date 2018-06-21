@@ -1,0 +1,45 @@
+{
+  "name": "VCase",
+  "version": "0.0.1",
+  "description": "The VGo Unboxing Website",
+  "main": "server.js",
+  "engines": {
+    "node": "8.9.4"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
+    "bunyan": "^1.8.12",
+    "istanbul": "^0.4.5",
+    "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-bunyan": "^1.0.1",
+    "koa-bunyan-logger": "^2.0.0",
+    "koa-passport": "^4.1.0",
+    "koa-qs": "^2.0.0",
+    "koa-rewrite": "^3.0.1",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.1",
+    "koa-static": "^4.0.2",
+    "lodash": "^4.17.5",
+    "omit-deep": "^0.3.0",
+    "passport-steam": "^1.0.10",
+    "qs": "^6.5.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "mocha": "^5.0.1",
+    "prettier": "1.10.2",
+    "should": "^13.2.1"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development npm start",
+    "start": "concurrently \"npm run server\" \"npm run client\" \"npm run vgo-mock\"",
+    "server": "node server.js",
+    "client": "node start-client.js",
+    "vgo-mock": "node start-vgo-mock.js",
+    "test": "NODE_ENV=test ./node_modules/.bin/istanbul cover _mocha -- --timeout 5000 --require should --exit 'test/**/*.js'",
+    "lint": "./node_modules/.bin/prettier --single-quote --trailing-comma es5 --list-different {./,**/,**/**/,**/**/**}*.js",
+    "prettier": "./node_modules/.bin/prettier --single-quote --trailing-comma es5 --write {./,**/,**/**/,**/**/**}*.js"
+  }
+}
